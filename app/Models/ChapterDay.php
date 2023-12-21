@@ -31,6 +31,13 @@ class ChapterDay extends Model
         );
     }
 
+    public static function toogleReaded(int $id): self
+    {
+        $chapterDay = self::find($id);
+        $chapterDay->readed_at = $chapterDay->readed_at ? null : now();
+        return $chapterDay;
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

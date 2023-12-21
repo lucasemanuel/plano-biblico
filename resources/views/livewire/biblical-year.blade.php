@@ -10,7 +10,7 @@ $temp = null;
                 @foreach ($chapterMonth as $chapter)
                     <div class="w-full even:bg-black/10 rounded-lg p-2 px-4 text-lg flex items-center">
                         <div class="w-8">{{ $chapter['day'] }}.</div>
-                        <input checked id="id" type="checkbox" value="true" class="w-5 h-5 bg-cyan-700 border-cyan-800 focus:ring-cyan-500 focus:ring-2 text-cyan-800 rounded">
+                        <input @if($chapter->readed_at) checked @endif id="id" type="checkbox" value="true" class="w-5 h-5 bg-cyan-700 border-cyan-800 focus:ring-cyan-500 focus:ring-2 text-cyan-500 rounded cursor-pointer" wire:click="markReaded({{ $chapter->id }})">
                         <label for="default-checkbox" class="ms-2 font-medium">
                         {{ $chapter->title }}
                         </label>
