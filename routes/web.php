@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthProviderController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,10 @@ Route::get('dashboard', DashboardController::class)
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::prefix('auth')->name('social.')->group(function () {
+    Route::get('/redirect', [AuthProviderController::class, 'redirect'])->name('login');
+    Route::get('/callback', [AuthProviderController::class, 'callback'])->name('callback');
+});
 
 require __DIR__ . '/auth.php';
