@@ -18,6 +18,8 @@ class ChapterDay extends Model
         'meta' => 'array',
     ];
 
+    protected $appends = ['title'];
+
     protected function title(): Attribute
     {
         return Attribute::make(

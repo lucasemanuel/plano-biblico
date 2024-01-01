@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
@@ -12,9 +13,12 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
         $chapterDays = auth()->user()->chapterDays;
+        $chaptersByMonth = $chapterDays
+            ->groupBy('month')
+            ->map(fn ($chapters, $month) => ['chapters' => $chapters, 'month' => $month]);
 
-        return view('dashboard', [
-            'chapterDays' => $chapterDays
+        return Inertia::render('Dashboard', [
+            'chapterMonths' => $chaptersByMonth
         ]);
     }
 }

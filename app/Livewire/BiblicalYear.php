@@ -3,9 +3,11 @@
 namespace App\Livewire;
 
 use App\Models\ChapterDay;
-use Livewire\Component;
 
-class BiblicalYear extends Component
+// use App\Models\ChapterDay;
+// use Livewire\Component;
+
+class BiblicalYear
 {
     public $chapters;
 

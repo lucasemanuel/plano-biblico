@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthProviderController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('google')->redirect();
+        return Inertia::location(Socialite::driver('google')->redirect()->getTargetUrl());
     }
 
     public function callback()
