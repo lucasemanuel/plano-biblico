@@ -15,22 +15,14 @@ export default function Dashboard({ auth, chapterMonths }) {
 
             <div className="mt-4">
                 <div className="max-w-7xl mx-auto columns-6 text-lg">
-                    <a href="#month-1" className="block underline text-center">Janeiro</a>
-                    <a href="#month-2" className="block underline text-center">Fevereiro</a>
-                    <a href="#month-3" className="block underline text-center">Março</a>
-                    <a href="#month-4" className="block underline text-center">Abril</a>
-                    <a href="#month-5" className="block underline text-center">Maio</a>
-                    <a href="#month-6" className="block underline text-center">Junho</a>
-                    <a href="#month-7" className="block underline text-center">Julho</a>
-                    <a href="#month-8" className="block underline text-center">Agosto</a>
-                    <a href="#month-9" className="block underline text-center">Setembro</a>
-                    <a href="#month-10" className="block underline text-center">Outubro</a>
-                    <a href="#month-11" className="block underline text-center">Novembro</a>
-                    <a href="#month-12" className="block underline text-center">Desembro</a>
+                    {
+                        Object.values(dayjs.months()).map(
+                            (month) => <a href={`#` + month} key={month} className="block underline text-center">{month}</a>)
+                    }
                 </div>
                 {
                     Object.values(chapterMonths).map(
-                        ({ chapters, month }) => <ListChapters title={dayjs().month(month - 1).format('MMMM')} key={month} chapters={chapters}></ListChapters>
+                        ({ chapters, month }) => <ListChapters title={dayjs().month(month - 1).format('MMMM')} key={month} idName={dayjs().month(month - 1).format('MMMM')} chapters={chapters}></ListChapters>
                     )
                 }
             </div>

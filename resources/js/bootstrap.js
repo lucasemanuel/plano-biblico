@@ -14,10 +14,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 import 'dayjs/locale/pt-br';
 import dayjs from 'dayjs';
+import localeData from 'dayjs/plugin/localeData';
+
 const appLocale = import.meta.env.VITE_APP_LOCALE || 'en';
 
+dayjs.extend(localeData);
 dayjs.locale(appLocale);
-
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
