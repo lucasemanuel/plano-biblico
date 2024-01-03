@@ -1,16 +1,17 @@
+import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link, Head } from '@inertiajs/react';
 import dayjs from 'dayjs';
 
-export default function Welcome({ auth }) {
+export default function Welcome({ auth, ...props }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="bg-dots-darker selection:bg-green-500 selection:text-white">
+            <div className="bg-dots-darker selection:bg-emerald-500 selection:text-white">
                 <header className="fixed w-full">
-                    <nav className="bg-white bg-gray-100 border-gray-200 py-2.5">
+                    <nav className="bg-gray-50 border-gray-200 py-2.5">
                         <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto px-4 py-2 lg:px-5 lg:py-2.5">
                             <a href="#" className="flex items-center">
-                                <span className="self-center text-xl font-bold whitespace-nowrap">Logo</span>
+                                <ApplicationLogo />
                             </a>
                             <div className="flex items-center lg:order-2">
                                 {auth.user ? (
@@ -53,10 +54,10 @@ export default function Welcome({ auth }) {
                         <div className="text-center">
                             <a href="#"
                                 className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900">
-                                Logo
+                                <ApplicationLogo />
                             </a>
                             <span className="block text-sm text-center text-gray-500">
-                                © {dayjs().format('YYYY')} Landwind™. All Rights Reserved.
+                                © {dayjs().format('YYYY')} {props.app.name}. All Rights Reserved.
                             </span>
                             <ul className="flex justify-center mt-5 space-x-5">
                                 <li>
@@ -86,7 +87,6 @@ export default function Welcome({ auth }) {
                     </div>
                 </footer>
             </div>
-
             <style>{`
                 .bg-dots-darker {
                     background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
