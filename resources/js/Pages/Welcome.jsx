@@ -17,14 +17,14 @@ export default function Welcome({ auth, ...props }) {
                                 {auth.user ? (
                                     <Link
                                         href={route('dashboard')}
-                                        className="text-gray-800 font-medium rounded-lg focus:outline-none"
+                                        className="text-gray-800 font-medium rounded-lg focus:outline-none hover:underline"
                                     >
                                         Log in
                                     </Link>
                                 ) : (
                                     <Link
                                         href={route('login')}
-                                        className="text-gray-800 font-medium rounded-lg focus:outline-none"
+                                        className="text-gray-800 font-medium rounded-lg focus:outline-none hover:underline"
                                     >
                                         Log in
                                     </Link>
