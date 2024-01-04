@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthProviderController;
+use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -38,6 +38,10 @@ Route::get('dashboard', DashboardController::class)
 Route::prefix('auth')->name('social.')->group(function () {
     Route::get('/redirect', [AuthProviderController::class, 'redirect'])->name('login');
     Route::get('/callback', [AuthProviderController::class, 'callback'])->name('callback');
+});
+
+Route::prefix('chapters')->name('chapters.')->group(function () {
+    Route::patch('/{chapter}', [ChapterController::class, 'update'])->name('update');
 });
 
 require __DIR__ . '/auth.php';
