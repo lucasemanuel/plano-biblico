@@ -1,8 +1,10 @@
 import { router } from "@inertiajs/react";
 
 export default function ListChapters({ title, idName, chapters }) {
-    function handleMarkReaded(id) {
-        router.patch(`/chapters/${id}`);
+    function handleMarkReaded(event, id) {
+        router.patch(`/chapters/${id}`, {}, {
+            preserveScroll: true
+        });
     }
 
     return (
@@ -15,7 +17,7 @@ export default function ListChapters({ title, idName, chapters }) {
                             return (
                                 <div className="w-full even:bg-black/5 rounded-lg p-2 px-4 text-lg flex items-center" key={index}>
                                     <div className="w-8">{chapter.day}</div>
-                                    <input id={'c-' + chapter.id} defaultChecked={chapter.readed_at} type="checkbox" value="true" className="w-5 h-5 focus:ring-emerald-600 focus:ring-2 text-emerald-600 rounded cursor-pointer" onChange={() => handleMarkReaded(chapter.id)} />
+                                    <input id={'c-' + chapter.id} defaultChecked={chapter.readed_at} type="checkbox" value="true" className="w-5 h-5 focus:ring-emerald-600 focus:ring-2 text-emerald-600 rounded cursor-pointer" onChange={(event) => handleMarkReaded(event, chapter.id)} />
                                     <label htmlFor={'c-' + chapter.id} className="ms-2 font-medium cursor-pointer">
                                         {chapter.title}
                                     </label>
