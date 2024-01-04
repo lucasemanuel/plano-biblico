@@ -16,7 +16,7 @@ export default function Welcome({ auth, ...props }) {
                             <div className="flex items-center lg:order-2">
                                 {auth.user ? (
                                     <Link
-                                        href={route('dashboard')}
+                                        href={route('home')}
                                         className="text-gray-800 font-medium rounded-lg focus:outline-none hover:underline"
                                     >
                                         Log in

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -17,7 +17,7 @@ class DashboardController extends Controller
             ->groupBy('month')
             ->map(fn ($chapters, $month) => ['chapters' => $chapters, 'month' => $month]);
 
-        return Inertia::render('Dashboard', [
+        return Inertia::render('Home', [
             'chapterMonths' => $chaptersByMonth
         ]);
     }
