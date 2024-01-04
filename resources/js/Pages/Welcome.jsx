@@ -34,14 +34,14 @@ export default function Welcome({ auth, ...props }) {
                     </nav>
                 </header>
                 <section>
-                    <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28 lg:h-[40rem]">
+                    <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28 sm:h-96 lg:h-[40rem]">
                         <div className="mr-auto place-self-center lg:col-span-7">
-                            <h1 className="max-w-2xl mb-4 text-4xl font-black leading-none tracking-tight md:text-5xl xl:text-6xl ">Organize sua leitura das palavras sagradas</h1>
+                            <h1 className="max-w-2xl mb-4 text-4xl font-black leading-none tracking-tight md:text-5xl xl:text-6xl">Organize sua leitura das palavras sagradas</h1>
                             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
                                 Navegue pelas páginas da fé, descubra as histórias divinas, e encontre seu caminho na trama sagrada da vida com sabedoria e inspiração, guiado pelo poder da Palavra.
                             </p>
                             <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                                <Link className="inline-flex items-center justify-center w-full px-5 py-3 font-semibold text-center text-gray-900 border border-gray-200 rounded-lg sm:w-60 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">Começe agora</Link>
+                                <Link href={route('login')} className="inline-flex items-center justify-center w-full px-5 py-3 font-semibold text-center border border-gray-200 rounded-lg sm:w-60 text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-100">Começe agora</Link>
                             </div>
                         </div>
                         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex justify-center">
