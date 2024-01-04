@@ -13,7 +13,7 @@ export default function Home({ auth, chapterMonths }) {
             <Head title="Home" />
 
             <div className="mt-4">
-                <div className="max-w-7xl mx-auto columns-6 text-lg">
+                <div className="max-w-7xl mx-auto gap-y-1 lg:gap-0 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 text-lg">
                     {
                         Object.values(dayjs.months()).map(
                             (month) => <a href={`#` + month} key={month} className="block underline text-center">{month}</a>)

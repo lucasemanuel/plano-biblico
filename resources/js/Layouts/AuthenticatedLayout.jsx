@@ -10,7 +10,7 @@ export default function Authenticated({ user, header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100 selection:bg-emerald-500 selection:text-white">
-            <header className="bg-emerald-700 text-center">
+            <header className="hidden sm:block bg-emerald-700 text-center">
                 <Link href="/">
                     <ApplicationLogo className="text-white" />
                 </Link>
@@ -19,6 +19,11 @@ export default function Authenticated({ user, header, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
+                            <div className="shrink-0 flex items-center sm:hidden">
+                                <Link href="/">
+                                    <ApplicationLogo />
+                                </Link>
+                            </div>
                             <div className="hidden space-x-8 sm:flex">
                                 <NavLink href={route('home')} active={route().current('home')}>
                                     Home
