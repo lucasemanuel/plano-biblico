@@ -59,8 +59,8 @@ class User extends Authenticatable
         'created' => UserCreatedEvent::class,
     ];
 
-    public function chapterDays(): HasMany
+    public function readingGuides(): HasMany
     {
-        return $this->hasMany(ChapterDay::class);
+        return $this->hasMany(ReadingGuide::class);
     }
 }
