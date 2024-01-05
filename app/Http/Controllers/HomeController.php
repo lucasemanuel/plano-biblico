@@ -12,13 +12,17 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $chapterDays = auth()->user()->chapterDays;
-        $chaptersByMonth = $chapterDays
-            ->groupBy('month')
-            ->map(fn ($chapters, $month) => ['chapters' => $chapters, 'month' => $month]);
+        /** User $user */
+        $user = auth()->user();
+        $excerpts = $user->readingGuides()
+            ->latest()
+            ->first()
+            ->excerpts
+            ->groupBy('section')
+            ->map(fn ($excerpt, $section) => ['excerpts' => $excerpt, 'section' => $section]);
 
         return Inertia::render('Home', [
-            'chapterMonths' => $chaptersByMonth
+            'month_excerpts' => $excerpts
         ]);
     }
 }

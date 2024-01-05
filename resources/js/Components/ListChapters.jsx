@@ -1,6 +1,6 @@
 import { router } from "@inertiajs/react";
 
-export default function ListChapters({ title, idName, chapters }) {
+export default function ListChapters({ title, idName, excerpts }) {
     function handleMarkReaded(event, id) {
         router.patch(`/chapters/${id}`, {}, {
             preserveScroll: true
@@ -13,13 +13,13 @@ export default function ListChapters({ title, idName, chapters }) {
                 <h1 className="text-4xl sm:text-6xl font-black pb-4 capitalize font-serif">{title}</h1>
                 <div className="md:columns-2 xl:columns-3">
                     {
-                        chapters.map((chapter, index) => {
+                        excerpts.map((excerpt, index) => {
                             return (
                                 <div className="w-full even:bg-black/5 rounded-lg p-2 px-4 text-lg flex items-center" key={index}>
-                                    <span className="min-w-8">{chapter.day}.</span>
-                                    <input id={'c-' + chapter.id} defaultChecked={chapter.readed_at} type="checkbox" value="true" className="w-5 h-5 focus:ring-emerald-600 focus:ring-2 text-emerald-600 rounded cursor-pointer" onChange={(event) => handleMarkReaded(event, chapter.id)} />
-                                    <label htmlFor={'c-' + chapter.id} className="ms-2 font-medium cursor-pointer">
-                                        {chapter.title}
+                                    <span className="min-w-8">{excerpt.key}.</span>
+                                    <input id={'c-' + excerpt.id} defaultChecked={excerpt.readed_at} type="checkbox" value="true" className="w-5 h-5 focus:ring-emerald-600 focus:ring-2 text-emerald-600 rounded cursor-pointer" onChange={(event) => handleMarkReaded(event, excerpt.id)} />
+                                    <label htmlFor={'c-' + excerpt.id} className="ms-2 font-medium cursor-pointer">
+                                        {excerpt.title}
                                     </label>
                                 </div>
                             )
