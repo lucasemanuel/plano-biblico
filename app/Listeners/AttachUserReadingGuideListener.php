@@ -7,7 +7,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Spatie\SimpleExcel\SimpleExcelReader;
 
-class GenerateChaptersListener
+class AttachUserReadingGuideListener
 {
     /**
      * Create the event listener.

@@ -1,8 +1,8 @@
 import { router } from "@inertiajs/react";
 
-export default function ListChapters({ title, idName, excerpts }) {
+export default function ListExcerpts({ title, idName, excerpts }) {
     function handleMarkReaded(event, id) {
-        router.patch(`/chapters/${id}`, {}, {
+        router.patch(`/excerpt/${id}`, {}, {
             preserveScroll: true
         });
     }

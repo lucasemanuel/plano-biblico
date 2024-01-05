@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthProviderController;
-use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\ExcerptController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +41,7 @@ Route::prefix('auth')->name('social.')->group(function () {
 });
 
 Route::prefix('chapters')->name('chapters.')->group(function () {
-    Route::patch('/{chapter}', [ChapterController::class, 'update'])->name('update');
+    Route::patch('/{chapter}', [ExcerptController::class, 'update'])->name('update');
 });
 
 require __DIR__ . '/auth.php';

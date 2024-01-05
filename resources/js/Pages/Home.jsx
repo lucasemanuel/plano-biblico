@@ -1,4 +1,4 @@
-import ListChapters from '@/Components/ListChapters';
+import ListExcerpts from '@/Components/ListExcerpts';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
@@ -20,7 +20,7 @@ export default function Home({ auth, month_excerpts }) {
                 </div>
                 {
                     Object.values(month_excerpts).map(
-                        ({ excerpts, section }) => <ListChapters title={section} key={section} idName={section} excerpts={excerpts}></ListChapters>
+                        ({ excerpts, section }) => <ListExcerpts title={section} key={section} idName={section} excerpts={excerpts}></ListExcerpts>
                     )
                 }
             </div>

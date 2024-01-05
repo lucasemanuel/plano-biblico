@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\ChapterDay;
+use App\Models\Excerpt;
 use Illuminate\Http\Request;
 
-class ChapterController extends Controller
+class ExcerptController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,10 +35,10 @@ class ChapterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ChapterDay $chapter)
+    public function update(Request $request, Excerpt $excerpt)
     {
-        $chapter->toogleReaded();
-        $chapter->save();
+        $excerpt->toogleReaded();
+        $excerpt->save();
 
         return;
     }
