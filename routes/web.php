@@ -40,8 +40,8 @@ Route::prefix('auth')->name('social.')->group(function () {
     Route::get('/callback', [AuthProviderController::class, 'callback'])->name('callback');
 });
 
-Route::prefix('chapters')->name('chapters.')->group(function () {
-    Route::patch('/{chapter}', [ExcerptController::class, 'update'])->name('update');
+Route::prefix('excerpts')->name('excerpts.')->group(function () {
+    Route::patch('/{excerpt}', [ExcerptController::class, 'update'])->name('update');
 });
 
 require __DIR__ . '/auth.php';

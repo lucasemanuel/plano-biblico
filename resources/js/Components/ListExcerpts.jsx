@@ -2,7 +2,7 @@ import { router } from "@inertiajs/react";
 
 export default function ListExcerpts({ title, idName, excerpts }) {
     function handleMarkReaded(event, id) {
-        router.patch(`/excerpt/${id}`, {}, {
+        router.patch(`/excerpts/${id}`, {}, {
             preserveScroll: true
         });
     }
