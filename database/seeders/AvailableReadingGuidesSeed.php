@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\AvailableReadingGuide;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class AvailableReadingGuidesSeed extends Seeder
