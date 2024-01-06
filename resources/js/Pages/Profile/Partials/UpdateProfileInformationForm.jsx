@@ -10,7 +10,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: user.name,
-        email: user.email,
     });
 
     const submit = (e) => {
@@ -22,16 +21,16 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">Profile Information</h2>
+                <h2 className="text-lg font-medium text-gray-900">Informações do Perfil</h2>
 
                 <p className="mt-1 text-sm text-gray-600">
-                    Update your account's profile information and email address.
+                    Atualize as informações do perfil e o endereço de e-mail da sua conta.
                 </p>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Nome" />
 
                     <TextInput
                         id="name"
@@ -44,22 +43,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     />
 
                     <InputError className="mt-2" message={errors.name} />
-                </div>
-
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        className="mt-1 block w-full"
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                        autoComplete="username"
-                    />
-
-                    <InputError className="mt-2" message={errors.email} />
                 </div>
 
                 {mustVerifyEmail && user.email_verified_at === null && (
@@ -85,7 +68,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                 )}
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                    <PrimaryButton disabled={processing}>Salvar</PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}
@@ -94,7 +77,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600">Saved.</p>
+                        <p className="text-sm text-gray-600">Salvo.</p>
                     </Transition>
                 </div>
             </form>
