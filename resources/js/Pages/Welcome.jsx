@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 export default function Welcome({ auth, ...props }) {
     return (
         <>
-            <Head title="Welcome" />
+            <Head title="Plano Bíblico" />
             <div className="bg-dots-darker selection:bg-emerald-500 selection:text-white">
                 <header className="fixed w-full">
                     <nav className="bg-gray-50 border-gray-200 py-2.5">
@@ -19,14 +19,14 @@ export default function Welcome({ auth, ...props }) {
                                         href={route('home')}
                                         className="text-gray-800 font-medium rounded-lg focus:outline-none hover:underline"
                                     >
-                                        Log in
+                                        Entrar
                                     </Link>
                                 ) : (
                                     <Link
                                         href={route('login')}
                                         className="text-gray-800 font-medium rounded-lg focus:outline-none hover:underline"
                                     >
-                                        Log in
+                                        Entrar
                                     </Link>
                                 )}
                             </div>
