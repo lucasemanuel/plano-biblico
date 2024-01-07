@@ -39,7 +39,6 @@ class ExcerptController extends Controller
         $excerpt->toogleReaded();
         $excerpt->save();
 
-        return;
     }
 
     /**

@@ -18,6 +18,7 @@ class Excerpt extends Model
     public function toogleReaded(): self
     {
         $this->readed_at = $this->readed_at ? null : now();
+
         return $this;
     }
 }

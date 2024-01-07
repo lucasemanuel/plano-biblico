@@ -40,6 +40,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         required
                         isFocused
                         autoComplete="name"
+                        disabled={mustVerifyEmail && user.email_verified_at === null}
                     />
 
                     <InputError className="mt-2" message={errors.name} />
@@ -48,14 +49,14 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
                         <p className="text-sm mt-2 text-gray-800">
-                            Your email address is unverified.
+                            Seu endereço de e-mail não foi verificado, para executar essa operação por favor verifique sua caixa de entrada..
                             <Link
                                 href={route('verification.send')}
                                 method="post"
                                 as="button"
-                                className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+                                className="ml-1 underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                             >
-                                Click here to re-send the verification email.
+                                Clique aqui para reenviar o e-mail de verificação.
                             </Link>
                         </p>
 
@@ -68,7 +69,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                 )}
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Salvar</PrimaryButton>
+                    <PrimaryButton disabled={processing || (mustVerifyEmail && user.email_verified_at === null)}>Salvar</PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}

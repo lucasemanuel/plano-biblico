@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('home', HomeController::class)
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified.social'])
     ->name('home');
 
 Route::prefix('auth')->name('social.')->group(function () {
@@ -41,4 +41,4 @@ Route::prefix('excerpts')->name('excerpts.')->group(function () {
     Route::patch('/{excerpt}', [ExcerptController::class, 'update'])->name('update');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

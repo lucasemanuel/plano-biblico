@@ -22,7 +22,7 @@ class HomeController extends Controller
             ->map(fn ($excerpt, $section) => ['excerpts' => $excerpt, 'section' => $section]);
 
         return Inertia::render('Home', [
-            'month_excerpts' => $excerpts
+            'month_excerpts' => $excerpts,
         ]);
     }
 }

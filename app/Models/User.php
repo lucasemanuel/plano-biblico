@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Events\UserCreatedEvent;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,7 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'provider',
-        'provider_id'
+        'provider_id',
     ];
 
     /**
@@ -59,6 +60,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $dispatchesEvents = [
         'created' => UserCreatedEvent::class,
     ];
+
+    protected function isFromProvider(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->provider && $this->provider_id,
+        );
+    }
 
     public function readingGuides(): HasMany
     {

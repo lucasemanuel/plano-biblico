@@ -21,8 +21,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         UserCreatedEvent::class => [
-            AttachUserReadingGuideListener::class
-        ]
+            AttachUserReadingGuideListener::class,
+        ],
     ];
 
     /**

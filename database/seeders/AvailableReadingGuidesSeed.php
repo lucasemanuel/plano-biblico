@@ -15,7 +15,7 @@ class AvailableReadingGuidesSeed extends Seeder
         AvailableReadingGuide::create([
             'name' => 'Ano Bíblico - 2024',
             'version' => '1.0.0',
-            'path_csv' => storage_path('csv') . '/ano-biblico.csv'
+            'path_csv' => storage_path('csv').'/ano-biblico.csv',
         ]);
     }
 }
