@@ -1,5 +1,4 @@
 export default function PrimaryButton({ className = '', disabled, children, ...props }) {
-    console.log(disabled);
     return (
         <button
             {...props}
