@@ -5,7 +5,7 @@ export default function ApplicationLogo({ className = '', ...props }) {
 
     return (
         <span {...props} className={
-            'text-emerald-700 font-extrabold text-lg ' +
+            'text-emerald-700 hover:text-emerald-600 font-extrabold text-lg ' +
             className
         } >
             {app.name}
