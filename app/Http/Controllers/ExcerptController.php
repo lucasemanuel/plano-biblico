@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BibleVerse;
 use App\Models\Excerpt;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ExcerptController extends Controller
 {
@@ -26,9 +28,25 @@ class ExcerptController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Excerpt $excerpt)
     {
-        //
+        $chapters = collect($excerpt->meta)->map(fn ($exc) => $exc['chapter']);
+        $numbers = [];
+        $chapters = BibleVerse::whereBookAbbrev($excerpt->meta[0]['book'])
+            ->whereIn('chapter', $chapters)
+            ->get()
+            ->groupBy('chapter')
+            ->map(function ($chapter, $index) use (&$numbers) {
+                $numbers[] = $index;
+                return ['verses' => $chapter, 'number' => $index];
+            });
+
+        $title = $chapters->first()['verses'][0]['book_name'] . " " . implode(', ', $numbers);
+        return Inertia::render('Excerpt', [
+            'book' => $chapters->first()['verses'][0]['book_name'],
+            'chapters' => $chapters,
+            'title' => $title
+        ]);
     }
 
     /**
@@ -38,7 +56,6 @@ class ExcerptController extends Controller
     {
         $excerpt->toogleReaded();
         $excerpt->save();
-
     }
 
     /**

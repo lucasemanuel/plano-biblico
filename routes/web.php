@@ -37,8 +37,9 @@ Route::prefix('auth')->name('social.')->group(function () {
     Route::get('/callback', [AuthProviderController::class, 'callback'])->name('callback');
 });
 
-Route::prefix('excerpts')->name('excerpts.')->group(function () {
+Route::prefix('excerpts')->name('excerpts.')->middleware(['auth', 'verified.social'])->group(function () {
+    Route::get('/{excerpt}', [ExcerptController::class, 'show'])->name('show');
     Route::patch('/{excerpt}', [ExcerptController::class, 'update'])->name('update');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

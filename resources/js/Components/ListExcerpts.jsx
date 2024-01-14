@@ -1,4 +1,4 @@
-import { router } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 
 export default function ListExcerpts({ title, idName, excerpts }) {
     function handleMarkReaded(event, id) {
@@ -15,12 +15,15 @@ export default function ListExcerpts({ title, idName, excerpts }) {
                     {
                         excerpts.map((excerpt, index) => {
                             return (
-                                <div className="w-full even:bg-black/5 rounded-lg p-2 px-4 text-lg flex items-center" key={index}>
+                                <div className="w-full even:bg-black/5 rounded-lg p-2 px-4 text-lg flex items-center hover:bg-emerald-500 hover:bg-opacity-60" key={index}>
                                     <span className="min-w-8">{excerpt.key}.</span>
                                     <input id={'c-' + excerpt.id} defaultChecked={excerpt.readed_at} type="checkbox" value="true" className="w-5 h-5 focus:ring-emerald-600 focus:ring-2 text-emerald-600 rounded cursor-pointer" onChange={(event) => handleMarkReaded(event, excerpt.id)} />
-                                    <label htmlFor={'c-' + excerpt.id} className="ms-2 font-medium cursor-pointer">
+                                    <label htmlFor={'c-' + excerpt.id} className="ms-2 w-full font-medium cursor-pointer">
                                         {excerpt.title}
                                     </label>
+                                    <Link href={route('excerpts.show', { excerpt: excerpt.id })} className="ml-4 font-medium cursor-pointer hover:underline ">
+                                        Leia
+                                    </Link>
                                 </div>
                             )
                         })
