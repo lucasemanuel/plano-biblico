@@ -42,4 +42,4 @@ Route::prefix('excerpts')->name('excerpts.')->middleware(['auth', 'verified.soci
     Route::patch('/{excerpt}', [ExcerptController::class, 'update'])->name('update');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

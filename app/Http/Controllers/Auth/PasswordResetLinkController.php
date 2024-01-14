@@ -63,7 +63,7 @@ class PasswordResetLinkController extends Controller
     {
         if (RateLimiter::tooManyAttempts($key, 1)) {
             throw ValidationException::withMessages([
-                'email' => 'Seu e-mail já foi enviado, aguarde chegar em sua caixa de entrada'
+                'email' => 'Seu e-mail já foi enviado, aguarde chegar em sua caixa de entrada',
             ]);
         }
 

@@ -38,14 +38,16 @@ class ExcerptController extends Controller
             ->groupBy('chapter')
             ->map(function ($chapter, $index) use (&$numbers) {
                 $numbers[] = $index;
+
                 return ['verses' => $chapter, 'number' => $index];
             });
 
-        $title = $chapters->first()['verses'][0]['book_name'] . " " . implode(', ', $numbers);
+        $title = $chapters->first()['verses'][0]['book_name'].' '.implode(', ', $numbers);
+
         return Inertia::render('Excerpt', [
             'book' => $chapters->first()['verses'][0]['book_name'],
             'chapters' => $chapters,
-            'title' => $title
+            'title' => $title,
         ]);
     }
 
