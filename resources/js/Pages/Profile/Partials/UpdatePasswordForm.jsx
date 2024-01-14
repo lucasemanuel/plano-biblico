@@ -98,7 +98,7 @@ export default function UpdatePasswordForm({ mustVerifyEmail, status, className 
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
                         <p className="text-sm mt-2 text-gray-800">
-                            Seu endereço de e-mail não foi verificado, para executar essa operação por favor verifique sua caixa de entrada..
+                            Seu endereço de e-mail não foi verificado, para executar essa operação por favor verifique sua caixa de entrada.
                             <Link
                                 href={route('verification.send')}
                                 method="post"
@@ -111,14 +111,14 @@ export default function UpdatePasswordForm({ mustVerifyEmail, status, className 
 
                         {status === 'verification-link-sent' && (
                             <div className="mt-2 font-medium text-sm text-green-600">
-                                A new verification link has been sent to your email address.
+                                Um novo link de verificação foi enviado para seu endereço de e-mail.
                             </div>
                         )}
                     </div>
                 )}
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing  || (mustVerifyEmail && user.email_verified_at === null)}>Salvar</PrimaryButton>
+                    <PrimaryButton disabled={processing || (mustVerifyEmail && user.email_verified_at === null)}>Salvar</PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}
